@@ -24,6 +24,7 @@ public class WarehouseApp {
 
         //Sort out packages into new lists.
         warehouseManager.sortHighPriority();
+        sleepThread(1000);
         warehouseManager.sortBooks();
 
         //Printout the list of warehouseManager packages and returns them.
@@ -35,7 +36,11 @@ public class WarehouseApp {
      * @param milliseconds How many milliseconds to sleep.
      */
     public static void sleepThread(int milliseconds) {
-
+        try {
+            Thread.sleep(milliseconds);
+        } catch (InterruptedException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     /**
